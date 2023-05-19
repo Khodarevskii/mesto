@@ -1,0 +1,27 @@
+.cross{
+  transition: 0.3s;
+}
+.cross::before{
+  content: ' ';
+  width: 32px;
+  background-color: white;
+  height: 3px;
+  position: absolute;
+  right: -25px;
+  top: -18px;
+  rotate: 45deg;
+}
+.cross::after{
+  content: ' ';
+  width: 32px;
+  background-color: white;
+  height: 3px;
+  position: absolute;
+  right: -25px;
+  top: -18px;
+  rotate: -45deg;
+}
+.cross:hover{
+  opacity: 0.6;
+  cursor: pointer;
+}

@@ -1,0 +1,15 @@
+.profile__info-button{
+  border: solid 1px white;
+  background: url(../../../image/Vector.png) no-repeat center ;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  margin: 0 0 0 18px;
+  transition: 0.3s;
+  top: 17px;
+  right: -36px;
+}
+.profile__info-button:hover{
+  opacity: 0.75;
+  cursor: pointer;
+}

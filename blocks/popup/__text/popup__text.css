@@ -1,0 +1,22 @@
+.popup__text{
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2) ;
+  box-shadow: none;
+  outline: none;
+  width: 358px;
+  height: 27px;
+  margin: 51px auto 33px auto;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+.popup__text:nth-child(3){
+  margin: 0 auto 48px auto;
+}
+@media (max-width:620px){
+  .popup__text{
+    width: 238px;
+  }
+}
