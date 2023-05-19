@@ -29,6 +29,3 @@
 @import url(../blocks/popup/__button/popup__button.css);
 @import url(../blocks/popup/__text/popup__text.css);
 @import url(../blocks/popup/__title/popup__title.css);
-@import url(../blocks/element/__like-on/element__like-on.css);
-@import url(../blocks/element/__like-on/_active/like__on_active.css);
-@import url(../blocks/element/__like-off/like__off.css);
