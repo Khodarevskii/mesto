@@ -1,27 +1,21 @@
 .cross{
   transition: 0.3s;
-}
-.cross::before{
-  content: ' ';
+  background: url(../../image/Icon.png) no-repeat center;
   width: 32px;
-  background-color: white;
-  height: 3px;
+  height: 32px;
   position: absolute;
-  right: -25px;
-  top: -18px;
-  rotate: 45deg;
-}
-.cross::after{
-  content: ' ';
-  width: 32px;
-  background-color: white;
-  height: 3px;
-  position: absolute;
-  right: -25px;
-  top: -18px;
-  rotate: -45deg;
+  top: -32px;
+  right: -32px;
+  border: none;
 }
 .cross:hover{
-  opacity: 0.6;
+  opacity: 50%;
   cursor: pointer;
+}
+@media (max-width:700px){
+  .cross{
+    right: 0;
+    width: 20px;
+    height: 20px;
+  }
 }

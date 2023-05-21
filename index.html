@@ -14,25 +14,16 @@
     <header class="header">
       <img src="image/logo.svg" alt="Лого" class="header__logo">
     </header>
-    <form class="popup">
-      <h2 class="popup__title">Редактировать профиль</h2>
-      <input class="popup__text popup__name" type="text">
-      <input class="popup__text popup__about" type="text">
-      <button type="submit" class="popup__button">
-        Сохранить
-      </button>
-      <div class="cross"></div>
-    </form>
+
     <main class="main">
-
-
       <section class="profile">
-
         <div class="profile__info">
           <img src="image/image.jpg" alt="Ваше фото" class="profile__avatar">
           <div class="profile__info-text">
-            <h1 class="profile__info-title">Жак-Ив Кусто</h1>
-            <div class="profile__info-button"></div>
+            <div class="profile__info-row">
+              <h1 class="profile__info-title">Жак-Ив Кусто</h1>
+              <div class="profile__info-button"></div>
+            </div>
             <p class="profile__info-subtitle">Исследователь океана</p>
           </div>
         </div>
@@ -44,42 +35,42 @@
           <img src="image/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск" class="element__image">
           <div class="element__bottom">
             <h2 class="element__title">Карачаевск</h2>
-            <img class="element__likes" src="image/Vector.svg">
+            <img class="element__likes" src="image/Vector.svg" alt="Сердечко">
           </div>
         </div>
         <div class="element">
           <img src="image/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="element__image">
           <div class="element__bottom">
             <h2 class="element__title">Гора Эльбрус</h2>
-            <img class="element__likes" src="image/Vector.svg">
+            <img class="element__likes" src="image/Vector.svg" alt="Сердечко">
           </div>
         </div>
         <div class="element">
           <img src="image/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="element__image">
           <div class="element__bottom">
             <h2 class="element__title">Домбай</h2>
-            <img class="element__likes" src="image/Vector.svg">
+            <img class="element__likes" src="image/Vector.svg" alt="Сердечко">
           </div>
         </div>
         <div class="element">
           <img src="image/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="element__image">
           <div class="element__bottom">
             <h2 class="element__title">Гора Эльбрус</h2>
-            <img class="element__likes" src="image/Vector.svg">
+            <img class="element__likes" src="image/Vector.svg" alt="Сердечко">
           </div>
         </div>
         <div class="element">
           <img src="image/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="element__image">
           <div class="element__bottom">
             <h2 class="element__title">Домбай</h2>
-            <img class="element__likes" src="image/Vector.svg">
+            <img class="element__likes" src="image/Vector.svg" alt="Сердечко">
           </div>
         </div>
         <div class="element">
           <img src="image/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск" class="element__image">
           <div class="element__bottom">
             <h2 class="element__title">Карачаево-Черкессия</h2>
-            <img class="element__likes" src="image/Vector.svg">
+            <img class="element__likes" src="image/Vector.svg" alt="Сердечко">
           </div>
         </div>
       </section>
@@ -87,6 +78,21 @@
     <footer class="footer">
       <p class="footer__copiright">© 2020 Mesto Russia</p>
     </footer>
+    <div class="popup">
+      <div class="popup__container">
+        <form class="popup__form">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input class="popup__text" id='name' type="text">
+          <input class="popup__text " id="about" type="text">
+          <button type="submit" class="popup__button">
+            Сохранить
+          </button>
+          <button type="button" class="cross"></button>
+        </form>
+
+      </div>
+    </div>
+
   </div>
   <script src="js/script.js"></script>
 </body>

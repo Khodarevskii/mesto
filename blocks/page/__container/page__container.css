@@ -1,9 +1,9 @@
 .page__container{
   max-width: 880px;
   margin: 0 auto;
-  overflow: hidden;
+  font-family: 'inter',sans-serif,Arial;
 }
-@media (max-width:620px){
+@media (max-width:700px){
   .page__container{
   max-width: 280px;
   }

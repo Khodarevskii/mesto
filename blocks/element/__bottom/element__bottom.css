@@ -1,6 +1,6 @@
 .element__bottom{
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  max-height: 79px;
+  justify-content: space-between;
+  margin: 25px 0 32px 0;
 }

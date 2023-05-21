@@ -1,6 +1,11 @@
 .header{
   min-height: 74px;
-  border-bottom: solid #545454 1px;
+  border-bottom: solid rgba(84, 84, 84, 0.7) 1px;
   max-width: 880px;
   margin: 45px auto 40px auto;
+}
+@media (max-width:700px){
+  .header{
+    margin: 28px auto 39px auto;
+  }
 }
