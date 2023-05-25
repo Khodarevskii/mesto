@@ -1,4 +1,4 @@
 .profile__info-text{
-  width: 336px;
+  max-width: 336px;
   margin: 0;
 }

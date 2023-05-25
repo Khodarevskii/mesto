@@ -1,32 +1,12 @@
 .profile__add-button{ 
   width: 150px;
   min-height: 50px;
-  border: solid 2px white;
-  position: relative;
-  box-sizing: border-box;
+  background: black url(../../../image/plus.png) center no-repeat;
+  border: 2px solid white;
   transition: 0.3s;
 }
-.profile__add-button::before{
-  content: '';
-  position: absolute;
-  background-color: white;
-  width: 22px;
-  height: 2px;
-  top: 23px;
-  left: 60px;
-}
-.profile__add-button::after{
-  content: ' ';
-  position: absolute;
-  background-color: white;
-  width: 22px;
-  height: 2px;
-  top: 23px;
-  left: 60px;
-  rotate: 90deg;
-}
 .profile__add-button:hover{
-  opacity: 50%;
+  opacity: 0.6;
   cursor: pointer;
 }
 @media (max-width:900px){
@@ -38,24 +18,5 @@
   .profile__add-button{
     margin: 36px 0 0 0;
     width: 282px;
-  }
-  .profile__add-button::before{
-    content: '';
-    position: absolute;
-    background-color: white;
-    width: 22px;
-    height: 2px;
-    top: 23px;
-    left: 45%;
-  }
-  .profile__add-button::after{
-    content: ' ';
-    position: absolute;
-    background-color: white;
-    width: 22px;
-    height: 2px;
-    top: 23px;
-    left: 45%;
-    rotate: 90deg;
   }
 }

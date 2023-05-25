@@ -2,6 +2,7 @@
   background-color: black;
   width: 358px;
   color: white;
+  border: none;
   height: 50px;
   margin: 0 auto 25px auto;
   border-radius: 1%;
@@ -12,11 +13,13 @@
   box-sizing: border-box;
 }
 .popup__button:hover{
-  opacity: 0.75;
+  opacity: 0.8;
   cursor: pointer;
 }
 @media (max-width:700px){
   .popup__button{
+    font-size: 14px;
+    line-height: 17px;
     width: 238px;
     height: 46px;
   }
