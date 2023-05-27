@@ -1,9 +1,9 @@
-.page__container{
+.main__container{
   max-width: 880px;
   margin: 0 auto;
 }
 @media (max-width:700px){
-  .page__container{
+  .main__container{
   max-width: 280px;
   }
 }

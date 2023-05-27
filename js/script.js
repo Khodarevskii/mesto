@@ -5,8 +5,8 @@ let page = document.querySelector('.page');
 let cross = document.querySelector('.cross');
 let name = document.querySelector('.profile__info-title');
 let about = document.querySelector('.profile__info-subtitle');
-let nameInput = document.querySelector('.popup__text-name');
-let jobInput = document.querySelector('.popup__text-about');
+let nameInput = document.querySelector('#name');
+let jobInput = document.querySelector('#about');
 function open() {
   popup.classList.add('popup_active');
   page.classList.add('page_close');
