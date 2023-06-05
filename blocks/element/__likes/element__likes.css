@@ -4,7 +4,7 @@
   min-height: 18px;
   transition: 0.3s;
   margin: 0 20px 0px 0;
-  background: url(../../../image/Vector.svg)  no-repeat;
+  background: url(../../../image/Vector.svg)  no-repeat ;
   border: none;
 }
 .element__likes:hover{

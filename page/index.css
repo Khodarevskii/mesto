@@ -32,3 +32,9 @@
 @import url(../blocks/footer/__container/footer__container.css);
 @import url(../blocks/header/__container/header__container.css);
 @import url(../blocks/main/__container/main__container.css);
+@import url(../blocks/main/main.css);
+@import url(../blocks/element/__delete-button/element__delete-button.css);
+@import url(../blocks/element/__likes_active/element__likes_active.css);
+@import url(../blocks/popup/__image/popup__image.css);
+@import url(../blocks/popup/__subtitle/popup__subtitle.css);
+@import url(../blocks/container/container.css);

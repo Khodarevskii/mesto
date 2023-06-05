@@ -1,0 +1,14 @@
+.element__delete-button{
+  background: url(../../../image/urna.png) no-repeat center;
+  border: none;
+  width: 18px;
+  height: 19px;
+  position: absolute;
+  top: 25px;
+  right: 21px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.element__delete-button:hover{
+  opacity: 0.6;
+}

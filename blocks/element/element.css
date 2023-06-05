@@ -2,6 +2,7 @@
   max-height: 361px;
   max-width: 282px;
   background-color: white;
+  position: relative;
   border-radius: 5%;
   overflow: hidden;
 }

@@ -1,0 +1,4 @@
+.element__likes_active{
+  background: url(../../../image/active.svg)  no-repeat;
+  transition: 0.3s;
+}
