@@ -1,21 +1,24 @@
-let profileSetting = document.querySelector('.profile__info-button');
-let formElement = document.querySelector('.popup__form');
-let popup = document.querySelectorAll('.popup')
-let page = document.querySelector('.page');
-let cross = document.querySelectorAll('.cross');
-let name = document.querySelector('.profile__info-title');
-let about = document.querySelector('.profile__info-subtitle');
-let nameInput = document.querySelector('#name');
-let jobInput = document.querySelector('#about');
-let profileAdd = document.querySelector('.profile__add-button');
-let placeName = document.querySelector('#place');
-let imageLink = document.querySelector('#link');
-let createForm = document.querySelector('#create-form')
-let elementPlace = document.querySelector('.elements');
-let element = document.querySelector('#element').content;
-let popupImage = document.querySelector('#image');
-let popupText = document.querySelector('#text')
+const profileSetting = document.querySelector('.profile__info-button');
+const formElement = document.querySelector('.popup__form');
+const popupProfile = document.querySelector('.popup-profile');
+const popupCreate = document.querySelector('.popup-create');
+const popupBigimg = document.querySelector('.popup-image');
+const name = document.querySelector('.profile__info-title');
+const about = document.querySelector('.profile__info-subtitle');
+const nameInput = document.querySelector('#name');
+const jobInput = document.querySelector('#about');
+const profileAdd = document.querySelector('.profile__add-button');
+const placeName = document.querySelector('#place');
+const imageLink = document.querySelector('#link');
+const createForm = document.querySelector('#create-form')
+const elementPlace = document.querySelector('.elements');
+const element = document.querySelector('#element').content;
+const popupImage = document.querySelector('#image');
+const popupText = document.querySelector('#text')
 const userElemnt = element.querySelector('.element').cloneNode(true);
+const crossProfile = document.querySelector('.cross-profile');
+const crossCreate = document.querySelector('.cross-create');
+const crossImage = document.querySelector('.cross-image');
 const initialCards = [
   {
     name: 'Архыз',
@@ -42,33 +45,43 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
+function like(target) {
+  target.classList.toggle('element__likes_active');
+}
+function deleteElement(target) {
+  target.parentElement.remove()
+}
+function bigImage(image, text) {
+  open(popupBigimg);
+  popupImage.src = image
+  popupText.textContent = text
+}
 initialCards.forEach(function (elements) {
   const initialElement = element.querySelector('.element').cloneNode(true);
   initialElement.querySelector('.element__image').src = elements.link;
   initialElement.querySelector('.element__title').textContent = elements.name;
-  elementPlace.prepend(initialElement);
+  let deleteButton = initialElement.querySelector('.element__delete-button');
+  let image = initialElement.querySelector('.element__image').src;
+  let text = initialElement.querySelector('.element__title').textContent;
+  let likes = initialElement.querySelector('.element__likes');
+  initialElement.querySelector('.element__image').addEventListener('click', bigImage.bind('img', image, text));
+  deleteButton.addEventListener('click', deleteElement.bind('button', deleteButton));
+  likes.addEventListener('click', like.bind('button', likes));
+  return elementPlace.prepend(initialElement);
 });
-/* Очень хотел сделать через bind,но почему-то не видет кнопку.*/
-function open(index) {
-  return function () {
-    nameInput.value = name.textContent;
-    jobInput.value = about.textContent;
-    popup[index].classList.add('popup_active');
-    page.classList.add('page_close');
-  }
+function open(target) {
+  nameInput.value = name.textContent;
+  jobInput.value = about.textContent;
+  target.classList.add('popup_active');
 }
-function close(index) {
-  return function () {
-    popup[index].classList.remove('popup_active');
-    page.classList.remove('page_close');
-  }
+function close(target) {
+  target.classList.remove('popup_active');
 }
 function handleFormSubmit(evt) {
   evt.preventDefault();
   name.textContent = nameInput.value;
   about.textContent = jobInput.value;
-  popup[0].classList.remove('popup_active');
-  page.classList.remove('page_close');
+  close(popupProfile);
 }
 function createElement(evt) {
   evt.preventDefault();
@@ -76,30 +89,20 @@ function createElement(evt) {
   const userElemnt = element.querySelector('.element').cloneNode(true);
   userElemnt.querySelector('.element__image').src = imageLink.value;
   userElemnt.querySelector('.element__title').textContent = placeName.value;
+  let deleteButton = userElemnt.querySelector('.element__delete-button');
+  let image = userElemnt.querySelector('.element__image').src;
+  let text = userElemnt.querySelector('.element__title').textContent;
+  let likes = userElemnt.querySelector('.element__likes');
+  userElemnt.querySelector('.element__image').addEventListener('click', bigImage.bind('img', image, text));
+  deleteButton.addEventListener('click', deleteElement.bind('button', deleteButton));
+  likes.addEventListener('click', like.bind('button', likes));
   elementPlace.prepend(userElemnt);
-  popup[1].classList.remove('popup_active');
-  page.classList.remove('page_close');
+  close(popupCreate);
 }
-function deleteElement(target) {
-  target.parentElement.remove()
-}
-function bigImage(target) {
-  popup[2].classList.add('popup_active');
-  page.classList.add('page_close');
-  popupImage.src = target.src
-  popupText.textContent = target.parentElement.textContent
-}
-elementPlace.addEventListener('click', function (evt) {
-  let element = evt.target;
-  if (element.classList.contains('element__delete-button')) deleteElement(element);
-  else if (element.classList.contains('element__likes')) element.classList.toggle('element__likes_active');
-  else if (element.classList.contains('element__image')) bigImage(element);
-  return
-});
 formElement.addEventListener('submit', handleFormSubmit);
-profileSetting.addEventListener('click', open(0));
-profileAdd.addEventListener('click', open(1));
-cross[0].addEventListener('click', close(0));
-cross[1].addEventListener('click', close(1));
-cross[2].addEventListener('click', close(2));
+profileSetting.addEventListener('click', open.bind('button', popupProfile));
+profileAdd.addEventListener('click', open.bind('button', popupCreate));
+crossProfile.addEventListener('click', close.bind('button', popupProfile));
+crossCreate.addEventListener('click', close.bind('button', popupCreate));
+crossImage.addEventListener('click', close.bind('button', popupBigimg));
 createForm.addEventListener('submit', createElement);
