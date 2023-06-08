@@ -57,22 +57,16 @@ function bigImage(image, text) {
   popupText.textContent = text
 }
 initialCards.forEach(function (elements) {
-  const initialElement = element.querySelector('.element').cloneNode(true);
-  initialElement.querySelector('.element__image').src = elements.link;
-  initialElement.querySelector('.element__title').textContent = elements.name;
-  let deleteButton = initialElement.querySelector('.element__delete-button');
-  let image = initialElement.querySelector('.element__image').src;
-  let text = initialElement.querySelector('.element__title').textContent;
-  let likes = initialElement.querySelector('.element__likes');
-  initialElement.querySelector('.element__image').addEventListener('click', bigImage.bind('img', image, text));
-  deleteButton.addEventListener('click', deleteElement.bind('button', deleteButton));
-  likes.addEventListener('click', like.bind('button', likes));
-  return elementPlace.prepend(initialElement);
+
+  createElement(elements, elements.link, elements.name);
 });
 function open(target) {
+  target.classList.add('popup_active');
+}
+function openProfile() {
+  open(popupProfile);
   nameInput.value = name.textContent;
   jobInput.value = about.textContent;
-  target.classList.add('popup_active');
 }
 function close(target) {
   target.classList.remove('popup_active');
@@ -83,26 +77,28 @@ function handleFormSubmit(evt) {
   about.textContent = jobInput.value;
   close(popupProfile);
 }
-function createElement(evt) {
-  evt.preventDefault();
-  let element = document.querySelector('#element').content;
-  const userElemnt = element.querySelector('.element').cloneNode(true);
-  userElemnt.querySelector('.element__image').src = imageLink.value;
-  userElemnt.querySelector('.element__title').textContent = placeName.value;
-  let deleteButton = userElemnt.querySelector('.element__delete-button');
-  let image = userElemnt.querySelector('.element__image').src;
-  let text = userElemnt.querySelector('.element__title').textContent;
-  let likes = userElemnt.querySelector('.element__likes');
-  userElemnt.querySelector('.element__image').addEventListener('click', bigImage.bind('img', image, text));
+function createElement(element, imageValue, textValue) {
+  const userElemnt = document.querySelector('#element').content;
+  element = userElemnt.querySelector('.element').cloneNode(true);
+  element.querySelector('.element__image').src = imageValue
+  element.querySelector('.element__title').textContent = textValue
+  const deleteButton = element.querySelector('.element__delete-button');
+  const image = element.querySelector('.element__image').src;
+  const text = element.querySelector('.element__title').textContent;
+  const likes = element.querySelector('.element__likes');
+  element.querySelector('.element__image').addEventListener('click', bigImage.bind('img', image, text));
   deleteButton.addEventListener('click', deleteElement.bind('button', deleteButton));
   likes.addEventListener('click', like.bind('button', likes));
-  elementPlace.prepend(userElemnt);
-  close(popupCreate);
+  return elementPlace.prepend(element);
+}
+function handleCardSubmit(evt, element) {
+  evt.preventDefault();
+  createElement(element, imageLink.value, placeName.value)
 }
 formElement.addEventListener('submit', handleFormSubmit);
-profileSetting.addEventListener('click', open.bind('button', popupProfile));
+profileSetting.addEventListener('click', openProfile);
 profileAdd.addEventListener('click', open.bind('button', popupCreate));
 crossProfile.addEventListener('click', close.bind('button', popupProfile));
 crossCreate.addEventListener('click', close.bind('button', popupCreate));
 crossImage.addEventListener('click', close.bind('button', popupBigimg));
-createForm.addEventListener('submit', createElement);
+createForm.addEventListener('submit', handleCardSubmit);
