@@ -57,8 +57,7 @@ function bigImage(image, text) {
   popupText.textContent = text
 }
 initialCards.forEach(function (elements) {
-
-  createElement(elements, elements.link, elements.name);
+  renderCard(elements.link, elements.name);
 });
 function open(target) {
   target.classList.add('popup_active');
@@ -77,9 +76,9 @@ function handleFormSubmit(evt) {
   about.textContent = jobInput.value;
   close(popupProfile);
 }
-function createElement(element, imageValue, textValue) {
+function createElement(imageValue, textValue) {
   const userElemnt = document.querySelector('#element').content;
-  element = userElemnt.querySelector('.element').cloneNode(true);
+  const element = userElemnt.querySelector('.element').cloneNode(true);
   element.querySelector('.element__image').src = imageValue
   element.querySelector('.element__title').textContent = textValue
   const deleteButton = element.querySelector('.element__delete-button');
@@ -89,11 +88,14 @@ function createElement(element, imageValue, textValue) {
   element.querySelector('.element__image').addEventListener('click', bigImage.bind('img', image, text));
   deleteButton.addEventListener('click', deleteElement.bind('button', deleteButton));
   likes.addEventListener('click', like.bind('button', likes));
-  return elementPlace.prepend(element);
+  return element;
 }
-function handleCardSubmit(evt, element) {
+function renderCard(img, text) {
+  elementPlace.prepend(createElement(img, text));
+}
+function handleCardSubmit(evt) {
   evt.preventDefault();
-  createElement(element, imageLink.value, placeName.value)
+  renderCard(imageLink.value, placeName.value)
 }
 formElement.addEventListener('submit', handleFormSubmit);
 profileSetting.addEventListener('click', openProfile);
